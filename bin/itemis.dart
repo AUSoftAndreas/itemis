@@ -1,3 +1,5 @@
+import 'package:itemis/entities/cart.dart';
+
 void main(List<String> arguments) {
-  print('Hello world!');
+  final cart = Cart();
 }

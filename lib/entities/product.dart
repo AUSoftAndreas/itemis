@@ -12,7 +12,7 @@ class Product {
     this.name,
     this.vat = const FullVat(),
     this.origin = const DomesticOrigin(),
-    this.price = 0,
+    this.priceNet = 0,
   });
 
   /// The name of the product
@@ -25,11 +25,20 @@ class Product {
   final Origin origin;
 
   /// The price of the product (net, in centicents)
-  final int price;
+  final int priceNet;
 
-  /// The VAT rate of the product
+  /// The VAT rate of the product (in 100th %)
   int get vatRate => vat.vatRate;
 
+  /// The VAT value of the product (in Euro centicents)
+  int get vatValue => priceNet * vatRate ~/ 10000;
+
   /// The import duty applicable for the product
-  int get importDuty => origin.importDuty;
+  int get importDutyRate => origin.importDutyRate;
+
+  /// The import duty value for the product
+  int get importDutyValue => priceNet * importDutyRate ~/ 10000;
+
+  /// The gross price of the product (in Euro centicents)
+  int get priceGross => priceNet + vatValue + importDutyValue;
 }

@@ -13,7 +13,7 @@ class CartItem {
     this.quantity = 1,
   });
 
-  int get importDuty => product.importDuty;
+  int get importDuty => product.importDutyRate;
 
   int get vatRate => product.vatRate;
 }

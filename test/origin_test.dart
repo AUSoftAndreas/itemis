@@ -14,11 +14,11 @@ void main() {
 
   test('Import duty is 0 for domestic goods', () {
     final domesticOrigin = DomesticOrigin();
-    expect(domesticOrigin.importDuty, 0);
+    expect(domesticOrigin.importDutyRate, 0);
   });
 
   test('Import duty is 5 for international goods', () {
     final domesticOrigin = InternationalOrigin();
-    expect(domesticOrigin.importDuty, 500);
+    expect(domesticOrigin.importDutyRate, 500);
   });
 }
