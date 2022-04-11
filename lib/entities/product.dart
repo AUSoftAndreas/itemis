@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:itemis/entities/origin.dart';
 import 'package:itemis/entities/vat.dart';
 
@@ -31,13 +33,24 @@ class Product {
   int get vatRate => vat.vatRate;
 
   /// The VAT value of the product (in Euro centicents)
-  int get vatValue => priceNet * vatRate ~/ 10000;
+  int get vatValue {
+    final withoutRounding = priceNet * vatRate ~/ 10000;
+    final withRounding = withoutRounding % 500 != 0 ? (withoutRounding ~/ 500) * 500 + 500 : withoutRounding;
+    return withRounding;
+  }
 
   /// The import duty applicable for the product
   int get importDutyRate => origin.importDutyRate;
 
   /// The import duty value for the product
-  int get importDutyValue => priceNet * importDutyRate ~/ 10000;
+  int get importDutyValue {
+    final withoutRounding = priceNet * importDutyRate ~/ 10000;
+    log('withoutRounding: $withoutRounding');
+    final withRounding = withoutRounding % 500 != 0 ? (withoutRounding ~/ 500) * 500 + 500 : withoutRounding;
+    log('Zwischenergebnis: ${withoutRounding % 500}');
+    log('withRounding: $withRounding');
+    return withRounding;
+  }
 
   /// The gross price of the product (in Euro centicents)
   int get priceGross => priceNet + vatValue + importDutyValue;

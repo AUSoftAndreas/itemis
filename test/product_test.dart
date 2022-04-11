@@ -104,4 +104,46 @@ void main() {
     expect(productInternationalReduced.priceGross, 1100000);
     expect(productInternationalNo.priceGross, 1050000);
   });
+
+  test('Rounding rules for sales tax are applied correctly', () {
+    final productA = Product(priceNet: 1000000); // 100 Euro -> 10 Euro
+    final productB = Product(priceNet: 1100000); // 110 Euro -> 11 Euro
+    final productC = Product(priceNet: 1010000); // 101 Euro -> 10,10 Euro
+    final productD = Product(priceNet: 1001000); // 100,10 Euro -> 10,05 Euro !!!
+    final productE = Product(priceNet: 1005000); // 100,50 Euro -> 10,05 Euro !!!
+    final productF = Product(priceNet: 1006000); // 100,60 Euro -> 10,10 Euro !!!
+    expect(productA.vatValue, 100000);
+    expect(productB.vatValue, 110000);
+    expect(productC.vatValue, 101000);
+    expect(productD.vatValue, 100500);
+    expect(productE.vatValue, 100500);
+    expect(productF.vatValue, 101000);
+  });
+
+  test('Rounding rules for import duties are applied correctly', () {
+    final productA = Product(origin: DomesticOrigin(), priceNet: 1000000); // 100 Euro -> 0 Euro
+    final productB = Product(origin: DomesticOrigin(), priceNet: 1100000); // 110 Euro -> 0 Euro
+    final productC = Product(origin: DomesticOrigin(), priceNet: 1010000); // 101 Euro -> 0 Euro
+    final productD = Product(origin: DomesticOrigin(), priceNet: 1001000); // 100,10 Euro -> 0 Euro
+    final productE = Product(origin: DomesticOrigin(), priceNet: 1005000); // 100,50 Euro -> 0 Euro !!!
+    final productF = Product(origin: DomesticOrigin(), priceNet: 1006000); // 100,60 Euro -> 0 Euro !!!
+    final productL = Product(origin: InternationalOrigin(), priceNet: 1000000); // 100 Euro -> 5 Euro
+    final productM = Product(origin: InternationalOrigin(), priceNet: 1100000); // 110 Euro -> 5,5 Euro
+    final productN = Product(origin: InternationalOrigin(), priceNet: 1010000); // 101 Euro -> 5,05 Euro
+    final productO = Product(origin: InternationalOrigin(), priceNet: 1001000); // 100,10 Euro -> 5,05 Euro !!!
+    final productP = Product(origin: InternationalOrigin(), priceNet: 1020000); // 102 Euro -> 5,10 Euro !!!
+    final productQ = Product(origin: InternationalOrigin(), priceNet: 1020500); // 102,50 Euro -> 5,15 Euro !!!
+    expect(productA.importDutyValue, 0);
+    expect(productB.importDutyValue, 0);
+    expect(productC.importDutyValue, 0);
+    expect(productD.importDutyValue, 0);
+    expect(productE.importDutyValue, 0);
+    expect(productF.importDutyValue, 0);
+    expect(productL.importDutyValue, 50000);
+    expect(productM.importDutyValue, 55000);
+    expect(productN.importDutyValue, 50500);
+    expect(productO.importDutyValue, 50500);
+    expect(productP.importDutyValue, 51000);
+    expect(productQ.importDutyValue, 51500);
+  });
 }
