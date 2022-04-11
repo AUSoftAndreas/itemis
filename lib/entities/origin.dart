@@ -17,5 +17,5 @@ class InternationalOrigin implements Origin {
   const InternationalOrigin();
 
   @override
-  int get importDuty => 5;
+  int get importDuty => 500;
 }

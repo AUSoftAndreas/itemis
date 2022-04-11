@@ -19,16 +19,16 @@ void main() {
 
   test('FullVat has a VAT of 10 (percent)', () {
     final fullVat = FullVat();
-    expect(fullVat.vat, 10);
+    expect(fullVat.vatRate, 1000);
   });
 
   test('ReducedVat has a VAT of 5 (percent)', () {
     final reducedVat = ReducedVat();
-    expect(reducedVat.vat, 5);
+    expect(reducedVat.vatRate, 500);
   });
 
   test('NoVat has a VAT of 0 (percent)', () {
     final noVat = NoVat();
-    expect(noVat.vat, 0);
+    expect(noVat.vatRate, 0);
   });
 }

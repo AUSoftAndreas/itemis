@@ -19,6 +19,6 @@ void main() {
 
   test('Import duty is 5 for international goods', () {
     final domesticOrigin = InternationalOrigin();
-    expect(domesticOrigin.importDuty, 5);
+    expect(domesticOrigin.importDuty, 500);
   });
 }
