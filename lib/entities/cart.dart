@@ -10,8 +10,6 @@ class Cart {
 
   get importDutyValue => items.fold<int>(0, (previousValue, element) => previousValue + element.importDutyValue);
 
-  get priceGross => items.fold<int>(0, (previousValue, element) => previousValue + element.priceGross);
-
   void add(CartItem cartItem) {
     items.add(cartItem);
   }

@@ -32,25 +32,22 @@ void main() {
 
   test('Combined case', () {
     final cart = Cart();
-    final productA = Product(priceNet: 1000000, vat: FullVat(), origin: DomesticOrigin());
-    final productB = Product(priceNet: 2000000, vat: ReducedVat(), origin: InternationalOrigin());
+    final productA = Product(shelfPrice: 1000000, vat: FullVat(), origin: DomesticOrigin());
+    final productB = Product(shelfPrice: 2000000, vat: ReducedVat(), origin: InternationalOrigin());
     final cartItemA = CartItem(product: productA, quantity: 2);
     final cartItemB = CartItem(product: productB, quantity: 3);
     expect(cart.items.length, 0);
     cart.add(cartItemA);
     cart.add(cartItemB);
     expect(cart.items.length, 2);
-    expect(cartItemA.priceNet, 2000000);
+    expect(cartItemA.priceNet, 1800000);
     expect(cartItemA.vatValue, 200000);
     expect(cartItemA.importDutyValue, 0);
-    expect(cartItemA.priceGross, 2200000);
-    expect(cartItemB.priceNet, 6000000);
+    expect(cartItemB.priceNet, 5700000);
     expect(cartItemB.vatValue, 300000);
     expect(cartItemB.importDutyValue, 300000);
-    expect(cartItemB.priceGross, 6600000);
-    expect(cart.priceNet, 8000000);
+    expect(cart.priceNet, 7500000);
     expect(cart.vatValue, 500000);
     expect(cart.importDutyValue, 300000);
-    expect(cart.priceGross, 8800000);
   });
 }

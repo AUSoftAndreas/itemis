@@ -14,7 +14,7 @@ class Product {
     this.name,
     this.vat = const FullVat(),
     this.origin = const DomesticOrigin(),
-    this.priceNet = 0,
+    this.shelfPrice,
   });
 
   /// The name of the product
@@ -27,14 +27,14 @@ class Product {
   final Origin origin;
 
   /// The price of the product (net, in centicents)
-  final int priceNet;
+  final int? shelfPrice;
 
   /// The VAT rate of the product (in 100th %)
   int get vatRate => vat.vatRate;
 
   /// The VAT value of the product (in Euro centicents)
   int get vatValue {
-    final withoutRounding = priceNet * vatRate ~/ 10000;
+    final withoutRounding = (shelfPrice ?? 0) * vatRate ~/ 10000;
     final withRounding = withoutRounding % 500 != 0 ? (withoutRounding ~/ 500) * 500 + 500 : withoutRounding;
     return withRounding;
   }
@@ -44,7 +44,7 @@ class Product {
 
   /// The import duty value for the product
   int get importDutyValue {
-    final withoutRounding = priceNet * importDutyRate ~/ 10000;
+    final withoutRounding = (shelfPrice ?? 0) * importDutyRate ~/ 10000;
     log('withoutRounding: $withoutRounding');
     final withRounding = withoutRounding % 500 != 0 ? (withoutRounding ~/ 500) * 500 + 500 : withoutRounding;
     log('Zwischenergebnis: ${withoutRounding % 500}');
@@ -52,6 +52,6 @@ class Product {
     return withRounding;
   }
 
-  /// The gross price of the product (in Euro centicents)
-  int get priceGross => priceNet + vatValue + importDutyValue;
+  /// The net price of the product (in Euro centicents)
+  int get priceNet => (shelfPrice ?? 0) - vatValue;
 }

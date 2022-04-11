@@ -22,6 +22,4 @@ class CartItem {
   int get vatRate => product.vatRate;
 
   int get vatValue => product.vatValue * quantity;
-
-  int get priceGross => product.priceGross * quantity;
 }
