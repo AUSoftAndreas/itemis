@@ -1,3 +1,5 @@
+import 'package:itemis/entities/cart_item.dart';
+import 'package:itemis/entities/product.dart';
 import 'package:test/test.dart';
 
 void main() {

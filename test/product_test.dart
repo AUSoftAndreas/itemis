@@ -50,4 +50,9 @@ void main() {
     expect(productDomestic.importDuty, 0);
     expect(productInternational.importDuty, 500);
   });
+
+  test('Product does have a price', () {
+    final product = Product();
+    expect(product.price, isA<int>());
+  });
 }
