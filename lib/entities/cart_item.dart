@@ -13,7 +13,15 @@ class CartItem {
     this.quantity = 1,
   });
 
-  int get importDuty => product.importDutyRate;
+  int get priceNet => product.priceNet * quantity;
+
+  int get importDutyRate => product.importDutyRate;
+
+  int get importDutyValue => product.importDutyValue * quantity;
 
   int get vatRate => product.vatRate;
+
+  int get vatValue => product.vatValue * quantity;
+
+  int get priceGross => product.priceGross * quantity;
 }
