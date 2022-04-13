@@ -1,5 +1,7 @@
+import 'package:equatable/equatable.dart';
+
 /// Base clas for all kinds of origin markers.
-abstract class Origin {
+abstract class Origin extends Equatable {
   /// Returns the import duty for this origin.
   int get importDutyRate;
 }
@@ -11,6 +13,14 @@ class DomesticOrigin implements Origin {
 
   @override
   int get importDutyRate => 0;
+
+  // Equatable
+  @override
+  List<Object> get props => [];
+
+  // Equatable
+  @override
+  bool get stringify => true;
 }
 
 /// Marker showing that the good which owns it, is an international good.
@@ -20,4 +30,12 @@ class InternationalOrigin implements Origin {
 
   @override
   int get importDutyRate => 500;
+
+  // Equatable
+  @override
+  List<Object> get props => [];
+
+  // Equatable
+  @override
+  bool get stringify => true;
 }

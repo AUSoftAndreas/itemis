@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:itemis/entities/cart_item.dart';
 
 /// Represents the entire cart of the user.
-class Cart {
+class Cart extends Equatable {
   /// Constructs one Cart.
   /// - [items]: The items in the cart. If no items are given, the cart is empty.
   Cart({List<CartItem>? items}) : items = items ?? [];
@@ -42,4 +43,7 @@ class Cart {
     sb.writeln('  import duty: ${importDutyValue}');
     return sb.toString();
   }
+
+  @override
+  List<Object> get props => [items];
 }

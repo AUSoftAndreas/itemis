@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:itemis/entities/product.dart';
 
 /// Represents one cart item, one entry to a ShoppingCart
-class CartItem {
+class CartItem extends Equatable {
   /// The product
   final Product product;
 
@@ -28,4 +29,8 @@ class CartItem {
   // The VAT amount for the CartItem. Equals the VAT amount of the underlying product
   // multiplied by the quantity.
   int get vatValue => product.vatValue * quantity;
+
+  /// Equatable
+  @override
+  List<Object> get props => [product, quantity];
 }
