@@ -11,11 +11,11 @@ class Money extends Equatable {
 
   double get asEuroDouble => amount / 10000;
 
-  int get asEuroInt => amount ~/ 10000 + amount % 10000 >= 5000 ? 1 : 0;
+  int get asEuroInt => (amount ~/ 10000) + ((amount % 10000) >= 5000 ? 1 : 0);
 
   double get asCentDouble => amount / 100;
 
-  int get asCentInt => amount ~/ 100 + amount % 100 >= 50 ? 1 : 0;
+  int get asCentInt => (amount ~/ 100) + ((amount % 100) >= 50 ? 1 : 0);
 
   /// Equatable
   @override
