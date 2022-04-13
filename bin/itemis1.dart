@@ -1,8 +1,8 @@
-import 'package:itemis/entities/cart.dart';
-import 'package:itemis/entities/cart_item.dart';
-import 'package:itemis/entities/origin.dart';
-import 'package:itemis/entities/product.dart';
-import 'package:itemis/entities/vat.dart';
+import 'package:itemis/no1/entities/cart.dart';
+import 'package:itemis/no1/entities/cart_item.dart';
+import 'package:itemis/no1/entities/origin.dart';
+import 'package:itemis/no1/entities/product.dart';
+import 'package:itemis/no1/entities/vat.dart';
 
 void main(List<String> arguments) {
   /// The exmaples given by Atemis
@@ -11,7 +11,7 @@ void main(List<String> arguments) {
   final cart3 = Cart();
   cart1.add(CartItem(
     product: Product(
-      name: 'Book 1a',
+      name: 'book',
       vat: const NoVat(),
       origin: const DomesticOrigin(),
       shelfPrice: 124900,
@@ -20,7 +20,7 @@ void main(List<String> arguments) {
 
   cart1.add(CartItem(
     product: Product(
-      name: 'CD 1b',
+      name: 'music CD',
       vat: const FullVat(),
       origin: const DomesticOrigin(),
       shelfPrice: 149900,
@@ -29,7 +29,7 @@ void main(List<String> arguments) {
 
   cart1.add(CartItem(
     product: Product(
-      name: 'Chocolate Bar 1c',
+      name: 'chocolate bar',
       vat: const NoVat(),
       origin: const DomesticOrigin(),
       shelfPrice: 8500,
@@ -38,7 +38,7 @@ void main(List<String> arguments) {
 
   cart2.add(CartItem(
     product: Product(
-      name: 'Imported box of chocolate 2a',
+      name: 'imported box of chocolates',
       vat: const NoVat(),
       origin: const InternationalOrigin(),
       shelfPrice: 100000,
@@ -47,7 +47,7 @@ void main(List<String> arguments) {
 
   cart2.add(CartItem(
     product: Product(
-      name: 'Imported bottle of perfume 2b',
+      name: 'imported bottle of perfume',
       vat: const FullVat(),
       origin: const InternationalOrigin(),
       shelfPrice: 475000,
@@ -56,7 +56,7 @@ void main(List<String> arguments) {
 
   cart3.add(CartItem(
     product: Product(
-      name: 'Imported bottle of perfume 3a',
+      name: 'imported bottle of perfume',
       vat: const FullVat(),
       origin: const InternationalOrigin(),
       shelfPrice: 279900,
@@ -65,7 +65,7 @@ void main(List<String> arguments) {
 
   cart3.add(CartItem(
     product: Product(
-      name: 'Bottle of perfume 3b',
+      name: 'bottle of perfume',
       vat: const FullVat(),
       origin: const DomesticOrigin(),
       shelfPrice: 189900,
@@ -74,7 +74,7 @@ void main(List<String> arguments) {
 
   cart3.add(CartItem(
     product: Product(
-      name: 'Packet of headache pills 3c',
+      name: 'package of headache pills',
       vat: const NoVat(),
       origin: const DomesticOrigin(),
       shelfPrice: 97500,
@@ -83,7 +83,7 @@ void main(List<String> arguments) {
 
   cart3.add(CartItem(
     product: Product(
-      name: 'Box of imported chocolate 3d',
+      name: 'imported box of chocolates',
       vat: const NoVat(),
       origin: const InternationalOrigin(),
       shelfPrice: 112500,
