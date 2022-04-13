@@ -1,19 +1,21 @@
-/// Base clas for all kinds of origins.
+/// Base clas for all kinds of origin markers.
 abstract class Origin {
   /// Returns the import duty for this origin.
   int get importDutyRate;
 }
 
-/// Goods are of domestic origin.
+/// Marker showing that the good which owns it, is a domestic good.
 class DomesticOrigin implements Origin {
+  /// Contructs a "domestic origin" marker.
   const DomesticOrigin();
 
   @override
   int get importDutyRate => 0;
 }
 
-/// Goods are of international origin
+/// Marker showing that the good which owns it, is an international good.
 class InternationalOrigin implements Origin {
+  /// Contructs a "international origin" marker.
   const InternationalOrigin();
 
   @override

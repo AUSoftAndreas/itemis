@@ -99,10 +99,10 @@ void main(List<String> arguments) {
     quantity: 1,
   ));
 
-  // print(cart1.receipt);
-  // print('');
-  // print(cart2.receipt);
-  // print('');
-  // print(cart3.receipt);
-  // print('');
+  print(cart1.toReceipt());
+  print('');
+  print(cart2.toReceipt());
+  print('');
+  print(cart3.toReceipt());
+  print('');
 }
