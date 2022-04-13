@@ -12,91 +12,82 @@ void main(List<String> arguments) {
   cart1.add(CartItem(
     product: Product(
       name: 'Book 1a',
-      vat: NoVat(),
-      origin: DomesticOrigin(),
+      vat: const NoVat(),
+      origin: const DomesticOrigin(),
       shelfPrice: 124900,
     ),
-    quantity: 1,
   ));
 
   cart1.add(CartItem(
     product: Product(
       name: 'CD 1b',
-      vat: FullVat(),
-      origin: DomesticOrigin(),
+      vat: const FullVat(),
+      origin: const DomesticOrigin(),
       shelfPrice: 149900,
     ),
-    quantity: 1,
   ));
 
   cart1.add(CartItem(
     product: Product(
       name: 'Chocolate Bar 1c',
-      vat: NoVat(),
-      origin: DomesticOrigin(),
+      vat: const NoVat(),
+      origin: const DomesticOrigin(),
       shelfPrice: 8500,
     ),
-    quantity: 1,
   ));
 
   cart2.add(CartItem(
     product: Product(
       name: 'Imported box of chocolate 2a',
-      vat: NoVat(),
-      origin: InternationalOrigin(),
+      vat: const NoVat(),
+      origin: const InternationalOrigin(),
       shelfPrice: 100000,
     ),
-    quantity: 1,
   ));
 
   cart2.add(CartItem(
     product: Product(
       name: 'Imported bottle of perfume 2b',
-      vat: FullVat(),
-      origin: InternationalOrigin(),
+      vat: const FullVat(),
+      origin: const InternationalOrigin(),
       shelfPrice: 475000,
     ),
-    quantity: 1,
   ));
 
   cart3.add(CartItem(
     product: Product(
       name: 'Imported bottle of perfume 3a',
-      vat: FullVat(),
-      origin: InternationalOrigin(),
+      vat: const FullVat(),
+      origin: const InternationalOrigin(),
       shelfPrice: 279900,
     ),
-    quantity: 1,
   ));
 
   cart3.add(CartItem(
     product: Product(
       name: 'Bottle of perfume 3b',
-      vat: FullVat(),
-      origin: DomesticOrigin(),
+      vat: const FullVat(),
+      origin: const DomesticOrigin(),
       shelfPrice: 189900,
     ),
-    quantity: 1,
   ));
 
   cart3.add(CartItem(
     product: Product(
       name: 'Packet of headache pills 3c',
-      vat: NoVat(),
-      origin: DomesticOrigin(),
+      vat: const NoVat(),
+      origin: const DomesticOrigin(),
       shelfPrice: 97500,
     ),
-    quantity: 1,
   ));
 
   cart3.add(CartItem(
     product: Product(
       name: 'Box of imported chocolate 3d',
-      vat: NoVat(),
-      origin: InternationalOrigin(),
+      vat: const NoVat(),
+      origin: const InternationalOrigin(),
       shelfPrice: 112500,
     ),
-    quantity: 1,
   ));
 
   print(cart1.toReceipt());

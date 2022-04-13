@@ -7,6 +7,7 @@ abstract class Vat {
 
 /// Full VAT rate for the product
 class FullVat implements Vat {
+  /// Constructs an object representing a full VAT rate.
   const FullVat();
 
   @override
@@ -15,6 +16,7 @@ class FullVat implements Vat {
 
 /// Reduced VAT rate for the product
 class ReducedVat implements Vat {
+  /// Constructs an object representing a reduced VAT rate.
   const ReducedVat();
 
   @override
@@ -23,6 +25,7 @@ class ReducedVat implements Vat {
 
 /// No VAT rate for the product
 class NoVat implements Vat {
+  /// Constructs an object representing a no VAT rate.
   const NoVat();
 
   @override

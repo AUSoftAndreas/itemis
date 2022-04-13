@@ -32,8 +32,8 @@ void main() {
 
   test('Combined case', () {
     final cart = Cart();
-    final productA = Product(shelfPrice: 1000000, vat: FullVat(), origin: DomesticOrigin());
-    final productB = Product(shelfPrice: 2000000, vat: ReducedVat(), origin: InternationalOrigin());
+    final productA = Product(shelfPrice: 1000000, vat: const FullVat(), origin: const DomesticOrigin());
+    final productB = Product(shelfPrice: 2000000, vat: const ReducedVat(), origin: const InternationalOrigin());
     final cartItemA = CartItem(product: productA, quantity: 2);
     final cartItemB = CartItem(product: productB, quantity: 3);
     expect(cart.items.length, 0);

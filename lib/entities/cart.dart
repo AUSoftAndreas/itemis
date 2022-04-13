@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:itemis/entities/cart_item.dart';
+import 'package:itemis/entities/money.dart';
 
 /// Represents the entire cart of the user.
 class Cart extends Equatable {
@@ -11,13 +12,13 @@ class Cart extends Equatable {
   final List<CartItem> items;
 
   /// The total net price of the cart. Equals the sum of the net prices of all items.
-  get priceNet => items.fold<int>(0, (previousValue, element) => previousValue + element.priceNet);
+  int get priceNet => items.fold<int>(0, (previousValue, element) => previousValue + element.priceNet);
 
   /// The total VAT tax amaount of the cart. Equals the sum of the VAT amounts of all items.
-  get vatValue => items.fold<int>(0, (previousValue, element) => previousValue + element.vatValue);
+  int get vatValue => items.fold<int>(0, (previousValue, element) => previousValue + element.vatValue);
 
   /// The total import duty amaount of the cart. Equals the sum of the import duty amounts of all items.
-  get importDutyValue => items.fold<int>(0, (previousValue, element) => previousValue + element.importDutyValue);
+  int get importDutyValue => items.fold<int>(0, (previousValue, element) => previousValue + element.importDutyValue);
 
   /// Adds a [CartItem] to the cart.
   void add(CartItem cartItem) {
@@ -29,6 +30,7 @@ class Cart extends Equatable {
     items.remove(cartItem);
   }
 
+  /// Returns the receipt for the cart as a String.
   String toReceipt() {
     final sb = StringBuffer();
     sb.writeln('Receipt');
@@ -38,9 +40,9 @@ class Cart extends Equatable {
     }
     sb.writeln('========');
     sb.writeln('Total');
-    sb.writeln('  net: ${priceNet}');
-    sb.writeln('  VAT: ${vatValue}');
-    sb.writeln('  import duty: ${importDutyValue}');
+    sb.writeln('  net: ${Money(priceNet).asEuroStringWithSymbol}');
+    sb.writeln('  VAT: ${Money(vatValue).asEuroStringWithSymbol}');
+    sb.writeln('  import duty: ${Money(importDutyValue).asEuroStringWithSymbol}');
     return sb.toString();
   }
 

@@ -3,22 +3,22 @@ import 'package:test/test.dart';
 
 void main() {
   test('Can create domestic origin', () {
-    final domesticOrigin = DomesticOrigin();
+    final domesticOrigin = const DomesticOrigin();
     expect(domesticOrigin, isA<Origin>());
   });
 
   test('Can create international origin', () {
-    final internationalOrigin = InternationalOrigin();
+    final internationalOrigin = const InternationalOrigin();
     expect(internationalOrigin, isA<Origin>());
   });
 
   test('Import duty is 0 for domestic goods', () {
-    final domesticOrigin = DomesticOrigin();
+    final domesticOrigin = const DomesticOrigin();
     expect(domesticOrigin.importDutyRate, 0);
   });
 
   test('Import duty is 5 for international goods', () {
-    final domesticOrigin = InternationalOrigin();
+    final domesticOrigin = const InternationalOrigin();
     expect(domesticOrigin.importDutyRate, 500);
   });
 }

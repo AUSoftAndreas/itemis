@@ -22,9 +22,9 @@ void main() {
 
   test('The VAT rate can be read and is of the expected values', () {
     final productDefault = Product();
-    final productFull = Product(vat: FullVat());
-    final productReduced = Product(vat: ReducedVat());
-    final productNo = Product(vat: NoVat());
+    final productFull = Product(vat: const FullVat());
+    final productReduced = Product(vat: const ReducedVat());
+    final productNo = Product(vat: const NoVat());
     final ciDefault = CartItem(product: productDefault);
     final ciFull = CartItem(product: productFull);
     final ciReduced = CartItem(product: productReduced);
@@ -37,9 +37,9 @@ void main() {
 
   test('Cart item have a VAT value of expected value', () {
     final product = Product(shelfPrice: 1000000); // 100 Euro
-    final productFull = Product(shelfPrice: 1000000, vat: FullVat());
-    final productReduced = Product(shelfPrice: 1000000, vat: ReducedVat());
-    final productNo = Product(shelfPrice: 1000000, vat: NoVat());
+    final productFull = Product(shelfPrice: 1000000, vat: const FullVat());
+    final productReduced = Product(shelfPrice: 1000000, vat: const ReducedVat());
+    final productNo = Product(shelfPrice: 1000000, vat: const NoVat());
     final ci = CartItem(product: product, quantity: 2);
     final ciFull = CartItem(product: productFull, quantity: 2);
     final ciReduced = CartItem(product: productReduced, quantity: 2);
@@ -52,8 +52,8 @@ void main() {
 
   test('The import duty reate can be read and is of the expected values', () {
     final productDefault = Product();
-    final productDomestic = Product(origin: DomesticOrigin());
-    final productInternational = Product(origin: InternationalOrigin());
+    final productDomestic = Product(origin: const DomesticOrigin());
+    final productInternational = Product(origin: const InternationalOrigin());
     final ciDefault = CartItem(product: productDefault, quantity: 2);
     final ciDomestic = CartItem(product: productDomestic, quantity: 2);
     final ciInternational = CartItem(product: productInternational, quantity: 2);
@@ -64,8 +64,8 @@ void main() {
 
   test('The import duty value can be read and is of the expected values', () {
     final productDefault = Product();
-    final productDomestic = Product(origin: DomesticOrigin(), shelfPrice: 1000000);
-    final productInternational = Product(origin: InternationalOrigin(), shelfPrice: 1000000);
+    final productDomestic = Product(origin: const DomesticOrigin(), shelfPrice: 1000000);
+    final productInternational = Product(origin: const InternationalOrigin(), shelfPrice: 1000000);
     final ciDefault = CartItem(product: productDefault, quantity: 2);
     final ciDomestic = CartItem(product: productDomestic, quantity: 2);
     final ciInternational = CartItem(product: productInternational, quantity: 2);
