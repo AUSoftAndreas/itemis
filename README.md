@@ -8,7 +8,7 @@ It was suggested to solve one of the challenges following practices like full do
 
 I solved (or tried to solve) all three of the challenges, because it was quite fun. I did not use any outside help, even though Github copilot obviously knows some of the challenges, because I'm probably one to try to solve them. :-)
 
-But I have to admit that I was too lazy to follow all good practices in challenge #2. I did not use any test driven development, and I did not do much documentation. I did a better job in challenge #1.
+But I have to admit that I was too lazy to follow all good practices in challenge #2. I did not use any test driven development. I did a better job in challenges #1 and #3.
 
 ## How to run my solutions
 
@@ -35,3 +35,16 @@ The /test directory follows the same logic.
 There is some inconsistencies in the task assignment. The output of my solution is different from the output in the task. I do think my solution is more correct. I guess that sometimes(not always) the sales taxes were added onto the product price, even though the task text says that VAT is already included.
 
 In general, I followed test driven development practices to the best of my knowledge. In general my solution is a little bit more complicated than it would have been necessary. I included three VAT rates (and a flexible system to add more). The same is true for the import duties. And my data model differentiates between products and sales cart items. Sales cart items can have a quantity too. The task itself does not have any item with a quantity other than 1.
+
+### Challenge #2
+
+Again, the system is a bit more complex than necessary. But, there are also some additional features. For example, my solution allows to define contraints, like "this talk can only be held in the morning".
+
+Regarding the automatic scheduling, my algorithm is good enough to solve this task, but there is still a lot of room for improvement. My algorithm in principle works quite simple. It simply 
+always places the longest remaining talk in the track with the most free time. To be a bit more 
+optimized, it also searches for combinations of two talks that neatly fit in the remaining time of a track. But, that's it. Furthermore, the algorithm does not check for the minimum track time. Therefore, edge cases are thinkable where the algorithm would not be able to arrange all talks, even if there is enough time.
+
+But ... well, I did not have the time to implement a better algorithm.
+
+### Challenge 3
+

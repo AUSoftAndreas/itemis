@@ -26,7 +26,7 @@ class Money extends Equatable {
   /// A value of 1 represents 1 Euro.
   int get asEuroInt => (amount ~/ 10000) + ((amount % 10000) >= 5000 ? 1 : 0);
 
-  /// The amount of money, as a String value in Euro.
+  /// The amount of money, as a String value in Euro but without the Euro symbol.
   String get asEuroStringWithoutSymbol {
     final format = NumberFormat('#,##0.00');
     final formattedNumber = format.format(asEuroDouble);
@@ -37,5 +37,6 @@ class Money extends Equatable {
   @override
   List<Object> get props => [amount];
 
+  /// The amount of money, as a String value in Euro with the Euro symbol.
   String get asEuroStringWithSymbol => '$asEuroStringWithoutSymbol €';
 }

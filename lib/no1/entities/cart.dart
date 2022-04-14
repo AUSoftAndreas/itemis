@@ -20,6 +20,7 @@ class Cart extends Equatable {
   /// The total import duty amaount of the cart. Equals the sum of the import duty amounts of all items.
   int get importDutyValue => items.fold<int>(0, (previousValue, element) => previousValue + element.importDutyValue);
 
+  /// The total gross price of the cart, including the sales tax. Equals the sum of the gross prices of all items.
   int get priceIncludingImportDuty =>
       items.fold<int>(0, (previousValue, element) => previousValue + element.priceIncludingImportDuty);
 
