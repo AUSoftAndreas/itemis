@@ -54,6 +54,6 @@ void main() {
   test('Empty receipt is as expected', () {
     final cart = Cart();
     final receipt = cart.toReceipt();
-    expect(receipt, 'Receipt\n========\n========\nTotal\n  net: 0,00 €\n  VAT: 0,00 €\n  import duty: 0,00 €\n');
+    expect(receipt, 'Receipt\n========\n========\nSales Taxes: 0,00 €\nTotal: 0,00 €\n');
   });
 }
