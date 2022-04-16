@@ -6,7 +6,7 @@ This is a coding challenge for itemis. It is part of the application process and
 
 It was suggested to solve one of the challenges following practices like full documentation, test driven development, and so on.
 
-I solved (or tried to solve) all three of the challenges, because it was quite fun. I did not use any outside help, even though Github copilot obviously knows some of the challenges, because I'm probably one to try to solve them. :-)
+I solved (or tried to solve) all three of the challenges, because it was quite fun. I did not use any outside help, even though Github copilot obviously knows some of the challenges, because I'm probably not the only one who tried to solve them. :-)
 
 But I have to admit that I was too lazy to follow all good practices in challenge #2. I did not use any test driven development. I did a better job in challenges #1 and #3.
 
@@ -32,7 +32,7 @@ The /test directory follows the same logic.
 
 ### Challenge #1
 
-There is some inconsistencies in the task assignment. The output of my solution is different from the output in the task. I do think my solution is more correct. I guess that sometimes(not always) the sales taxes were added onto the product price, even though the task text says that VAT is already included.
+There is some inconsistencies in the task assignment. The output of my solution is different from the output in the task. I do think my solution is more correct. I guess that sometimes (not always) the sales taxes were added onto the product price, even though the task text says that VAT is already included in the shelf price.
 
 In general, I followed test driven development practices to the best of my knowledge. In general my solution is a little bit more complicated than it would have been necessary. I included three VAT rates (and a flexible system to add more). The same is true for the import duties. And my data model differentiates between products and sales cart items. Sales cart items can have a quantity too. The task itself does not have any item with a quantity other than 1.
 
@@ -48,3 +48,7 @@ But ... well, I did not have the time to implement a better algorithm.
 
 ### Challenge 3
 
+The interpreter is a bit specific, meaning it really needs input to be exactly as specified. It will not understand if you forget a question mark or put the question mark directly after the last word and such. This is probably okay, because it handles the example inputs provided in the task assignment and of course all inputs that follow the same syntax. But it could be improved.
+
+Anyhow, it works:
+![Screenshot of user interaction](/no3.PNG)
