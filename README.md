@@ -12,7 +12,7 @@ But I have to admit that I was too lazy to follow all good practices in challeng
 
 ## How to run my solutions
 
-All main routines (entry points) are in the /bin directory. They are named itemis1.dart, items1.dart and itemis3.dart. Obviously they are written in Dart (no Flutter because no GUI). Furthermore, I compiled all of them. Therefore, you can run them directly from the command line.
+All main routines (entry points) are in the /bin directory. They are named itemis1.dart, items2.dart and itemis3.dart. Obviously they are written in Dart (no Flutter because no GUI). Furthermore, I compiled all of them. Therefore, you can run them directly from the command line.
 
 ```
 bin/itemis1.exe
